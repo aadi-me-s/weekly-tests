@@ -65,6 +65,8 @@
 <script>
   const params = new URLSearchParams(window.location.search);
   const score = parseInt(params.get("score"), 10);
+  const name = params.get("name");
+  const id = params.get("id");
 
   const scoreBox = document.getElementById("score-text");
   const levelBox = document.getElementById("level");
@@ -86,12 +88,31 @@
       levelBox.textContent = "❗ Work Hard";
       remarksBox.textContent = "Significant gaps in understanding. Focus on fundamentals and practice more.";
     }
+
+    // ✅ Send score, name, and id to Google Sheets
+    if (name && id) {
+      const payload = {
+        student_name: name,
+        student_id: id,
+        score: score
+      };
+
+      fetch("https://script.google.com/macros/s/AKfycbz_uJ0bQVpEVcCrjAduOHyEGIquZYS0CmcYIOCGzhZckioyv7R-qp7uSdP4vNli1W4/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+    }
+
   } else {
     scoreBox.textContent = "❌ Score not available";
     levelBox.textContent = "";
     remarksBox.textContent = "Please return to the quiz page and complete the test.";
   }
 </script>
-
+  
 </body>
 </html>
