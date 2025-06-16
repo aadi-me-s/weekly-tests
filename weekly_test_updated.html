@@ -165,12 +165,11 @@
       }
     }
   });
+})
+.catch((err) => {
+  console.error(err);
+  alert("❌ There was an error submitting your responses.");
 });
-    .catch((err) => {
-      console.error(err);
-      alert("❌ There was an error submitting your responses.");
-    });
-  });
 </script>
 
 </body>
