@@ -100,6 +100,9 @@
       }
     });
 
+    // ✅ Add score to output object for saving to Google Sheet
+    output.score = score;
+
     // Send to Google Sheet
     fetch("https://script.google.com/macros/s/AKfycbz_uJ0bQVpEVcCrjAduOHyEGIquZYS0CmcYIOCGzhZckioyv7R-qp7uSdP4vNli1W4/exec", {
       method: "POST",
