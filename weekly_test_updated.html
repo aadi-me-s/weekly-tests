@@ -29,11 +29,50 @@
 </form>
 
 <script>
+  const correctAnswers = {
+    q1: "10",
+    q2: "8",
+    q3: "0 and 1",
+    q4: "13",
+    q5: "CPU",
+    q6: "Operating System",
+    q7: "101",
+    q8: "Temporary memory",
+    q9: "G",
+    q10: ["Keyboard", "Mouse", "Microphone"],
+    q11: "3",
+    q12: "Binary to Decimal Conversion",
+    q13: "15",
+    q14: "9",
+    q15: ["2F", "3A", "B9"],
+    q16: "1101",
+    q17: "Octal",
+    q18: "16",
+    q19: "11",
+    q20: "7 * 8^2 = 448",
+    q21: ["Managing hardware", "Handling input/output", "Running programs"],
+    q22: ["10101", "11010", "1001"],
+    q23: "F",
+    q24: "12",
+    q25: ["89", "78"],
+    q26: "8 CPUs in one chip",
+    q27: "26",
+    q28: "15",
+    q29: ["Volatile memory", "Faster than HDD"],
+    q30: "Core of operating system",
+    q31: "10",
+    q32: "E",
+    q33: "8",
+    q34: "37",
+    q35: "16"
+  };
+
   document.getElementById("quiz-form").addEventListener("submit", function(e) {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const output = {};
+    let score = 0;
 
     formData.forEach((value, key) => {
       if (output[key]) {
@@ -44,6 +83,24 @@
       }
     });
 
+    // Score calculation
+    Object.keys(correctAnswers).forEach(key => {
+      const correct = correctAnswers[key];
+      const user = output[key];
+
+      if (Array.isArray(correct)) {
+        const userArray = Array.isArray(user) ? user : [user];
+        const isCorrect = correct.length === userArray.length &&
+                          correct.every(v => userArray.includes(v));
+        if (isCorrect) score++;
+      } else {
+        if (String(user).trim().toLowerCase() === String(correct).trim().toLowerCase()) {
+          score++;
+        }
+      }
+    });
+
+    // Send to Google Sheet
     fetch("https://script.google.com/macros/s/AKfycbz_uJ0bQVpEVcCrjAduOHyEGIquZYS0CmcYIOCGzhZckioyv7R-qp7uSdP4vNli1W4/exec", {
       method: "POST",
       mode: "no-cors",
@@ -53,7 +110,7 @@
       body: JSON.stringify(output)
     })
     .then(() => {
-      alert("✅ Your responses have been recorded successfully!");
+      alert(`✅ Your responses have been recorded successfully!\nYou scored ${score} out of 35.`);
       form.reset();
     })
     .catch((err) => {
