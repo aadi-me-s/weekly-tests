@@ -29,49 +29,38 @@
 </form>
 
 <script>
-const formFields = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12", "q13", "q14", "q15", "q16", "q17", "q18", "q19", "q20", "q21", "q22", "q23", "q24", "q25", "q26", "q27", "q28", "q29", "q30", "q31", "q32", "q33", "q34", "q35"];
+  document.getElementById("quiz-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const output = {};
 
-document.getElementById("quiz-form").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
-  const output = {};
-
-  for (const [key, value] of formData.entries()) {
-    if (output[key]) {
-      if (!Array.isArray(output[key])) output[key] = [output[key]];
-      output[key].push(value);
-    } else {
-      output[key] = value;
-    }
-  }
-
-  formFields.forEach(field => {
-    if (!output[field]) {
-      const el = form.querySelector(`[name="${field}"]`);
-      if (el && el.type === "checkbox") {
-        output[field] = "";
+    formData.forEach((value, key) => {
+      if (output[key]) {
+        if (!Array.isArray(output[key])) output[key] = [output[key]];
+        output[key].push(value);
+      } else {
+        output[key] = value;
       }
-    }
-  });
+    });
 
-  fetch("https://script.google.com/macros/s/AKfycbz5waBTzaTMsaMyZ-aiaRF0w60tPEt6rG_yJI61bYYQwW0RzKm9NgLqDyK7XM_ppxbQ/exec", {
-    method: "POST",
-    body: JSON.stringify(output),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  .then(response => response.text())
-  .then(result => {
-    alert("✅ Your responses have been submitted successfully!");
-    form.reset();
-  })
-  .catch(error => {
-    alert("❌ There was an error submitting your responses.");
-    console.error("Submission error:", error);
+    fetch("https://script.google.com/macros/s/AKfycbz_uJ0bQVpEVcCrjAduOHyEGIquZYS0CmcYIOCGzhZckioyv7R-qp7uSdP4vNli1W4/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(output)
+    })
+    .then(() => {
+      alert("✅ Your responses have been recorded successfully!");
+      form.reset();
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("❌ There was an error submitting your responses.");
+    });
   });
-});
 </script>
 
 </body>
