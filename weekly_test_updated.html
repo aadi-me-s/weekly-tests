@@ -109,67 +109,15 @@
       },
       body: JSON.stringify(output)
     })
-.then(() => {
-  // Hide the form
-  form.style.display = "none";
-
-  // Create result header
-  const resultBox = document.createElement("div");
-  resultBox.innerHTML = `<h2 style="color:green;">✅ Your responses have been recorded!</h2>
-    <h3>You scored ${score} out of 35</h3>`;
-  document.body.appendChild(resultBox);
-
-  // For each question, show feedback
-  Object.keys(correctAnswers).forEach(key => {
-    const questionBox = document.querySelector(`[name="${key}"]`)?.closest(".question");
-    if (!questionBox) return;
-
-    const correct = correctAnswers[key];
-    const user = output[key];
-    let userArray = Array.isArray(user) ? user : [user];
-    let correctArray = Array.isArray(correct) ? correct : [correct];
-
-    const options = questionBox.querySelectorAll("input");
-
-    options.forEach(opt => {
-      if (userArray.includes(opt.value)) {
-        // User selected this
-        if (correctArray.includes(opt.value)) {
-          opt.parentElement.style.backgroundColor = "#d4edda"; // green
-        } else {
-          opt.parentElement.style.backgroundColor = "#f8d7da"; // red
-        }
-      } else if (correctArray.includes(opt.value)) {
-        // Correct answer not selected
-        opt.parentElement.style.border = "2px solid green";
-      }
+    .then(() => {
+      alert(`✅ Your responses have been recorded successfully!\nYou scored ${score} out of 35.`);
+      form.reset();
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("❌ There was an error submitting your responses.");
     });
-
-    // For NAT questions (text)
-    if (options.length === 0 && typeof correct === "string") {
-      const input = questionBox.querySelector("input[type='text']");
-      if (input) {
-        const userAns = String(input.value).trim().toLowerCase();
-        const correctAns = String(correct).trim().toLowerCase();
-        if (userAns === correctAns) {
-          input.style.backgroundColor = "#d4edda";
-        } else {
-          input.style.backgroundColor = "#f8d7da";
-          const correctBox = document.createElement("div");
-          correctBox.style.marginTop = "5px";
-          correctBox.style.fontWeight = "bold";
-          correctBox.style.color = "green";
-          correctBox.innerText = `✅ Correct Answer: ${correct}`;
-          questionBox.appendChild(correctBox);
-        }
-      }
-    }
   });
-})
-.catch((err) => {
-  console.error(err);
-  alert("❌ There was an error submitting your responses.");
-});
 </script>
 
 </body>
