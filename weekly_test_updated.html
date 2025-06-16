@@ -110,8 +110,8 @@
       body: JSON.stringify(output)
     })
     .then(() => {
-      alert(`✅ Your responses have been recorded successfully!\nYou scored ${score} out of 35.`);
-      form.reset();
+      // Redirect to result page with score
+      window.location.href = `result.html?score=${score}`;
     })
     .catch((err) => {
       console.error(err);
@@ -119,6 +119,8 @@
     });
   });
 </script>
+
+Let me know if you want the full result.html page that shows the student's score and remark after redirection.
 
 </body>
 </html>
