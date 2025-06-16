@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Weekly Test Score</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 40px;
+    }
+    .box {
+      background: #fff;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .score {
+      font-size: 28px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .level {
+      font-size: 24px;
+      margin-top: 15px;
+    }
+    .remarks {
+      margin-top: 10px;
+      font-size: 18px;
+      font-style: italic;
+      color: #555;
+    }
+    .pdf-link {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+    .pdf-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .pdf-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <div class="score" id="score-text">Your Score: —</div>
+  <div class="level" id="level">—</div>
+  <div class="remarks" id="remarks">—</div>
+
+  <div class="pdf-link">
+    📘 View correct answers: 
+    <a href="https://drive.google.com/uc?id=1sIyOfQ0PJEIP5S-tN4MIjUmFDEvlMkE0" target="_blank">
+      Click here to download PDF
+    </a>
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const score = parseInt(params.get("score"), 10);
+
+  const scoreBox = document.getElementById("score-text");
+  const levelBox = document.getElementById("level");
+  const remarksBox = document.getElementById("remarks");
+
+  if (!isNaN(score)) {
+    scoreBox.textContent = `Your Score: ${score} / 35`;
+
+    if (score >= 31) {
+      levelBox.textContent = "⭐ Outstanding";
+      remarksBox.textContent = "Excellent grasp of the topic. Keep up the great work!";
+    } else if (score >= 25) {
+      levelBox.textContent = "👍 Well Done";
+      remarksBox.textContent = "Good understanding, just a few areas to polish.";
+    } else if (score >= 18) {
+      levelBox.textContent = "⚠️ Needs Improvement";
+      remarksBox.textContent = "Basic understanding is there, but more revision is needed.";
+    } else {
+      levelBox.textContent = "❗ Work Hard";
+      remarksBox.textContent = "Significant gaps in understanding. Focus on fundamentals and practice more.";
+    }
+  } else {
+    scoreBox.textContent = "❌ Score not available";
+    levelBox.textContent = "";
+    remarksBox.textContent = "Please return to the quiz page and complete the test.";
+  }
+</script>
+
+</body>
+</html>
