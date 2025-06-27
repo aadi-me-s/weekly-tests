@@ -2,153 +2,417 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Weekly Test: Digital Logic + Number Systems</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    h1 { text-align: center; }
-    .question { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
-    .question-title { font-weight: bold; margin-bottom: 8px; }
-    .options label { display: block; }
-    .submit-button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
-    input[type="text"] { width: 100%; padding: 5px; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Test - Digital Logic</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-100 text-gray-900 font-sans p-6">
 
-<h1>Weekly Test: Digital Logic Week 2</h1>
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8 space-y-6">
+    <h1 class="text-4xl font-bold text-center text-indigo-600">🧠 Weekly Test: Digital Logic</h1>
 
-<form id="quiz-form">
-  <div>
-    <label>Your Name: <input type="text" name="student_name" required></label><br>
-    <label>Roll Number or Email: <input type="text" name="student_id" required></label>
-  </div><br>
+    <form id="quiz-form" class="space-y-6">
+      <!-- Student Info -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <label class="block">
+          <span class="font-medium">Your Name:</span>
+          <input type="text" name="student_name" required class="mt-1 block w-full px-4 py-2 border rounded">
+        </label>
+        <label class="block">
+          <span class="font-medium">Roll Number or Email:</span>
+          <input type="text" name="student_id" required class="mt-1 block w-full px-4 py-2 border rounded">
+        </label>
+      </div>
+      
+      <!-- Q1 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q1. How many outputs does a 2-input decoder generate?</p>
+        <label class="block"><input type="radio" name="q1" value="2" required> 2</label>
+        <label class="block"><input type="radio" name="q1" value="4"> 4</label>
+        <label class="block"><input type="radio" name="q1" value="8"> 8</label>
+        <label class="block"><input type="radio" name="q1" value="16"> 16</label>
+      </div>
 
-<div class="question"><div class="question-title">Q1. How many outputs does a 2-input decoder generate?</div><label><input type="radio" name="q1" value="2" required> 2</label><label><input type="radio" name="q1" value="4" required> 4</label><label><input type="radio" name="q1" value="8" required> 8</label><label><input type="radio" name="q1" value="16" required> 16</label></div>
-<div class="question"><div class="question-title">Q2. What is the number of outputs in a 3-input decoder?</div><label><input type="radio" name="q2" value="4" required> 4</label><label><input type="radio" name="q2" value="6" required> 6</label><label><input type="radio" name="q2" value="8" required> 8</label><label><input type="radio" name="q2" value="10" required> 10</label></div>
-<div class="question"><div class="question-title">Q3. Which of the following represents the correct output when input to a 2x4 decoder is 10?</div><label><input type="radio" name="q3" value="D0" required> D0</label><label><input type="radio" name="q3" value="D1" required> D1</label><label><input type="radio" name="q3" value="D2" required> D2</label><label><input type="radio" name="q3" value="D3" required> D3</label></div>
-<div class="question"><div class="question-title">Q4. In a 2x4 decoder, which input combination will activate D3?</div><label><input type="radio" name="q4" value="11" required> 11</label><label><input type="radio" name="q4" value="10" required> 10</label><label><input type="radio" name="q4" value="01" required> 01</label><label><input type="radio" name="q4" value="00" required> 00</label></div>
-<div class="question"><div class="question-title">Q5. What is the binary equivalent of hexadecimal digit 'A'?</div><label><input type="radio" name="q5" value="1010" required> 1010</label><label><input type="radio" name="q5" value="1001" required> 1001</label><label><input type="radio" name="q5" value="1111" required> 1111</label><label><input type="radio" name="q5" value="1100" required> 1100</label></div>
-<div class="question"><div class="question-title">Q6. What is the base of the octal number system?</div><label><input type="radio" name="q6" value="8" required> 8</label><label><input type="radio" name="q6" value="2" required> 2</label><label><input type="radio" name="q6" value="10" required> 10</label><label><input type="radio" name="q6" value="16" required> 16</label></div>
-<div class="question"><div class="question-title">Q7. Which of the following is NOT a valid octal digit?</div><label><input type="radio" name="q7" value="7" required> 7</label><label><input type="radio" name="q7" value="8" required> 8</label><label><input type="radio" name="q7" value="6" required> 6</label><label><input type="radio" name="q7" value="2" required> 2</label></div>
-<div class="question"><div class="question-title">Q8. What does a decoder do?</div><label><input type="radio" name="q8" value="Converts smaller number of inputs into larger number of outputs" required> Converts smaller number of inputs into larger number of outputs</label><label><input type="radio" name="q8" value="Multiplies inputs" required> Multiplies inputs</label><label><input type="radio" name="q8" value="Stores data" required> Stores data</label><label><input type="radio" name="q8" value="Adds inputs" required> Adds inputs</label></div>
-<div class="question"><div class="question-title">Q9. Binary equivalent of decimal number 10 is:</div><label><input type="radio" name="q9" value="1010" required> 1010</label><label><input type="radio" name="q9" value="1000" required> 1000</label><label><input type="radio" name="q9" value="1100" required> 1100</label><label><input type="radio" name="q9" value="1110" required> 1110</label></div>
-<div class="question"><div class="question-title">Q10. Which of the following are valid hexadecimal values?</div><label><input type="checkbox" name="q10" value="1F"> 1F</label><label><input type="checkbox" name="q10" value="G1"> G1</label><label><input type="checkbox" name="q10" value="A9"> A9</label><label><input type="checkbox" name="q10" value="B7"> B7</label></div>
-<div class="question"><div class="question-title">Q11. Which of the following are valid binary numbers?</div><label><input type="checkbox" name="q11" value="1010"> 1010</label><label><input type="checkbox" name="q11" value="2190"> 2190</label><label><input type="checkbox" name="q11" value="0011"> 0011</label><label><input type="checkbox" name="q11" value="10A1"> 10A1</label></div>
-<div class="question"><div class="question-title">Q12. The binary equivalent of decimal 53 is:</div><label><input type="radio" name="q12" value="110101" required> 110101</label><label><input type="radio" name="q12" value="101101" required> 101101</label><label><input type="radio" name="q12" value="110110" required> 110110</label><label><input type="radio" name="q12" value="111010" required> 111010</label></div>
-<div class="question"><div class="question-title">Q13. Hexadecimal digit 'F' in binary is:</div><label><input type="radio" name="q13" value="1110" required> 1110</label><label><input type="radio" name="q13" value="1010" required> 1010</label><label><input type="radio" name="q13" value="1101" required> 1101</label><label><input type="radio" name="q13" value="1111" required> 1111</label></div>
-<div class="question"><div class="question-title">Q14. Which of the following are true about decoders?</div><label><input type="checkbox" name="q14" value="It is a combinational circuit"> It is a combinational circuit</label><label><input type="checkbox" name="q14" value="3 input decoder gives 6 outputs"> 3 input decoder gives 6 outputs</label><label><input type="checkbox" name="q14" value="2 input decoder gives 4 outputs"> 2 input decoder gives 4 outputs</label><label><input type="checkbox" name="q14" value="It stores data"> It stores data</label></div>
-<div class="question"><div class="question-title">Q15. Which component is required to enable a decoder block selectively?</div><label><input type="radio" name="q15" value="XOR gate" required> XOR gate</label><label><input type="radio" name="q15" value="Enable pin" required> Enable pin</label><label><input type="radio" name="q15" value="NAND gate" required> NAND gate</label><label><input type="radio" name="q15" value="Flip-Flop" required> Flip-Flop</label></div>
-<div class="question"><div class="question-title">Q16. What is the minimum number of 2×4 decoders required to build a 3×8 decoder?</div><label><input type="radio" name="q16" value="1" required> 1</label><label><input type="radio" name="q16" value="2" required> 2</label><label><input type="radio" name="q16" value="3" required> 3</label><label><input type="radio" name="q16" value="4" required> 4</label></div>
-<div class="question"><div class="question-title">Q17. A2 input is connected to which part of the decoder circuit in a 3x8 decoder using 2x4 decoders?</div><label><input type="radio" name="q17" value="Output of all gates" required> Output of all gates</label><label><input type="radio" name="q17" value="Enable pin via NOT gate" required> Enable pin via NOT gate</label><label><input type="radio" name="q17" value="Input A0" required> Input A0</label><label><input type="radio" name="q17" value="Ground" required> Ground</label></div>
-<div class="question"><div class="question-title">Q18. Decimal number 255 in binary is:</div><input type="text" name="q18" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q19. Convert hexadecimal 2F to binary:</div><input type="text" name="q19" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q20. Number of combinations possible for 3 binary input lines:</div><input type="text" name="q20" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q21. Hex A (base 16) = ? (octal)</div><input type="text" name="q21" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q22. What is the octal equivalent of 1BF (hex)?</div><input type="text" name="q22" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q23. Decimal value of binary 100101 is:</div><input type="text" name="q23" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q24. Binary equivalent of hex 1A is:</div><input type="text" name="q24" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q25. Decimal 19 to base 3 gives:</div><input type="text" name="q25" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q26. Which are valid octal numbers?</div><label><input type="checkbox" name="q26" value="78"> 78</label><label><input type="checkbox" name="q26" value="47"> 47</label><label><input type="checkbox" name="q26" value="63"> 63</label><label><input type="checkbox" name="q26" value="89"> 89</label></div>
-<div class="question"><div class="question-title">Q27. For input A=0, B=1, output in 2×4 decoder is:</div><label><input type="radio" name="q27" value="D0" required> D0</label><label><input type="radio" name="q27" value="D1" required> D1</label><label><input type="radio" name="q27" value="D2" required> D2</label><label><input type="radio" name="q27" value="D3" required> D3</label></div>
-<div class="question"><div class="question-title">Q28. What does the 2×4 decoder logic D2 output simplify to?</div><label><input type="radio" name="q28" value="A'B'" required> A'B'</label><label><input type="radio" name="q28" value="AB'" required> AB'</label><label><input type="radio" name="q28" value="A'B" required> A'B</label><label><input type="radio" name="q28" value="AB" required> AB</label></div>
-<div class="question"><div class="question-title">Q29. Number of minterms in 3-variable SOP expression is:</div><input type="text" name="q29" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q30. What is required to draw the circuit for a decoder from truth table?</div><label><input type="radio" name="q30" value="Only OR gates" required> Only OR gates</label><label><input type="radio" name="q30" value="Only AND gates" required> Only AND gates</label><label><input type="radio" name="q30" value="Boolean expressions" required> Boolean expressions</label><label><input type="radio" name="q30" value="Multiplexers" required> Multiplexers</label></div>
-<div class="question"><div class="question-title">Q31. Decimal value of hex 1A is:</div><input type="text" name="q31" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q32. What is the minimum number of bits needed to represent decimal 100?</div><input type="text" name="q32" required placeholder="Enter your answer here"></div>
-<div class="question"><div class="question-title">Q33. Which values can a 2-bit binary number represent?</div><label><input type="checkbox" name="q33" value="0"> 0</label><label><input type="checkbox" name="q33" value="1"> 1</label><label><input type="checkbox" name="q33" value="2"> 2</label><label><input type="checkbox" name="q33" value="4"> 4</label></div>
-<div class="question"><div class="question-title">Q34. Which of these are valid 4-bit binary equivalents of hexadecimal digits?</div><label><input type="checkbox" name="q34" value="1111"> 1111</label><label><input type="checkbox" name="q34" value="0000"> 0000</label><label><input type="checkbox" name="q34" value="0101"> 0101</label><label><input type="checkbox" name="q34" value="11010"> 11010</label></div>
-<div class="question"><div class="question-title">Q35. What is the base of the hexadecimal number system?</div><input type="text" name="q35" required placeholder="Enter your answer here"></div>
+      <!-- Q2 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q2. What is the number of outputs in a 3-input decoder?</p>
+        <label class="block"><input type="radio" name="q2" value="4" required> 4</label>
+        <label class="block"><input type="radio" name="q2" value="6"> 6</label>
+        <label class="block"><input type="radio" name="q2" value="8"> 8</label>
+        <label class="block"><input type="radio" name="q2" value="10"> 10</label>
+      </div>
+        
+      <!-- Q3 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q3. Which of the following represents the correct output when input to a 2x4 decoder is 10?</p>
+        <label class="block"><input type="radio" name="q3" value="D0" required> D0</label>
+        <label class="block"><input type="radio" name="q3" value="D1"> D1</label>
+        <label class="block"><input type="radio" name="q3" value="D2"> D2</label>
+        <label class="block"><input type="radio" name="q3" value="D3"> D3</label>
+      </div>
 
-  <button type="submit" class="submit-button">Submit Answers</button>
+      <!-- Q4 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q4. In a 2x4 decoder, which input combination will activate D3?</p>
+        <label class="block"><input type="radio" name="q4" value="11" required> 11</label>
+        <label class="block"><input type="radio" name="q4" value="10"> 10</label>
+        <label class="block"><input type="radio" name="q4" value="01"> 01</label>
+        <label class="block"><input type="radio" name="q4" value="00"> 00</label>
+      </div>
+
+      <!-- Q5 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q5. What is the binary equivalent of hexadecimal digit 'A'?</p>
+        <label class="block"><input type="radio" name="q5" value="1010" required> 1010</label>
+        <label class="block"><input type="radio" name="q5" value="1001"> 1001</label>
+        <label class="block"><input type="radio" name="q5" value="1111"> 1111</label>
+        <label class="block"><input type="radio" name="q5" value="1100"> 1100</label>
+      </div>
+
+      <!-- Q6 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q6. What is the base of the octal number system?</p>
+        <label class="block"><input type="radio" name="q6" value="8" required> 8</label>
+        <label class="block"><input type="radio" name="q6" value="2"> 2</label>
+        <label class="block"><input type="radio" name="q6" value="10"> 10</label>
+        <label class="block"><input type="radio" name="q6" value="16"> 16</label>
+      </div>
+
+      <!-- Q7 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q7. Which of the following is NOT a valid octal digit?</p>
+        <label class="block"><input type="radio" name="q7" value="7" required> 7</label>
+        <label class="block"><input type="radio" name="q7" value="8"> 8</label>
+        <label class="block"><input type="radio" name="q7" value="6"> 6</label>
+        <label class="block"><input type="radio" name="q7" value="2"> 2</label>
+      </div>
+      
+      <!-- Q8 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q8. What does a decoder do?</p>
+        <label class="block"><input type="radio" name="q8" value="Converts smaller number of inputs into larger number of outputs" required> Converts smaller number of inputs into larger number of outputs</label>
+        <label class="block"><input type="radio" name="q8" value="Multiplies inputs"> Multiplies inputs</label>
+        <label class="block"><input type="radio" name="q8" value="Stores data"> Stores data</label>
+        <label class="block"><input type="radio" name="q8" value="Adds inputs"> Adds inputs</label>
+      </div>
+      
+      <!-- Q9 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q9. Binary equivalent of decimal number 10 is:</p>
+        <label class="block"><input type="radio" name="q9" value="1010" required> 1010</label>
+        <label class="block"><input type="radio" name="q9" value="1000"> 1000</label>
+        <label class="block"><input type="radio" name="q9" value="1100"> 1100</label>
+        <label class="block"><input type="radio" name="q9" value="1110"> 1110</label>
+      </div>
+      
+      <!-- Q10 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q10. Which of the following are valid hexadecimal values?</p>
+        <label class="block"><input type="checkbox" name="q10" value="1F"> 1F</label>
+        <label class="block"><input type="checkbox" name="q10" value="G1"> G1</label>
+        <label class="block"><input type="checkbox" name="q10" value="A9"> A9</label>
+        <label class="block"><input type="checkbox" name="q10" value="B7"> B7</label>
+      </div>
+      
+      <!-- Q11 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q11. Which of the following are valid binary numbers?</p>
+        <label class="block"><input type="checkbox" name="q11" value="1010"> 1010</label>
+        <label class="block"><input type="checkbox" name="q11" value="2190"> 2190</label>
+        <label class="block"><input type="checkbox" name="q11" value="0011"> 0011</label>
+        <label class="block"><input type="checkbox" name="q11" value="10A1"> 10A1</label>
+      </div>
+      
+      <!-- Q12 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q12. The binary equivalent of decimal 53 is:</p>
+        <label class="block"><input type="radio" name="q12" value="110101" required> 110101</label>
+        <label class="block"><input type="radio" name="q12" value="101101"> 101101</label>
+        <label class="block"><input type="radio" name="q12" value="110110"> 110110</label>
+        <label class="block"><input type="radio" name="q12" value="111010"> 111010</label>
+      </div>
+
+            <!-- Q13 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q13. Hexadecimal digit 'F' in binary is:</p>
+        <label class="block"><input type="radio" name="q13" value="1110" required> 1110</label>
+        <label class="block"><input type="radio" name="q13" value="1010"> 1010</label>
+        <label class="block"><input type="radio" name="q13" value="1101"> 1101</label>
+        <label class="block"><input type="radio" name="q13" value="1111"> 1111</label>
+      </div>
+      
+      <!-- Q14 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q14. Which of the following are true about decoders?</p>
+        <label class="block"><input type="checkbox" name="q14" value="It is a combinational circuit"> It is a combinational circuit</label>
+        <label class="block"><input type="checkbox" name="q14" value="3 input decoder gives 6 outputs"> 3 input decoder gives 6 outputs</label>
+        <label class="block"><input type="checkbox" name="q14" value="2 input decoder gives 4 outputs"> 2 input decoder gives 4 outputs</label>
+        <label class="block"><input type="checkbox" name="q14" value="It stores data"> It stores data</label>
+      </div>
+      
+      <!-- Q15 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q15. Which component is required to enable a decoder block selectively?</p>
+        <label class="block"><input type="radio" name="q15" value="XOR gate" required> XOR gate</label>
+        <label class="block"><input type="radio" name="q15" value="Enable pin"> Enable pin</label>
+        <label class="block"><input type="radio" name="q15" value="NAND gate"> NAND gate</label>
+        <label class="block"><input type="radio" name="q15" value="Flip-Flop"> Flip-Flop</label>
+      </div>
+      
+      <!-- Q16 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q16. What is the minimum number of 2×4 decoders required to build a 3×8 decoder?</p>
+        <label class="block"><input type="radio" name="q16" value="1" required> 1</label>
+        <label class="block"><input type="radio" name="q16" value="2"> 2</label>
+        <label class="block"><input type="radio" name="q16" value="3"> 3</label>
+        <label class="block"><input type="radio" name="q16" value="4"> 4</label>
+      </div>
+      
+      <!-- Q17 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q17. How can you enable one 2×4 decoder among many using input lines?</p>
+        <label class="block"><input type="radio" name="q17" value="Using OR gate" required> Using OR gate</label>
+        <label class="block"><input type="radio" name="q17" value="Enable pin via NOT gate"> Enable pin via NOT gate</label>
+        <label class="block"><input type="radio" name="q17" value="Adding another output"> Adding another output</label>
+        <label class="block"><input type="radio" name="q17" value="It can't be done"> It can't be done</label>
+      </div>
+      
+      <!-- Q18 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q18. What is the binary equivalent of decimal 255?</p>
+        <label class="block"><input type="radio" name="q18" value="11111111" required> 11111111</label>
+        <label class="block"><input type="radio" name="q18" value="00001111"> 00001111</label>
+        <label class="block"><input type="radio" name="q18" value="10101010"> 10101010</label>
+        <label class="block"><input type="radio" name="q18" value="11000011"> 11000011</label>
+      </div>
+
+      <!-- Q19 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q19. What is the binary equivalent of hexadecimal 2F?</p>
+        <label class="block"><input type="radio" name="q19" value="00101111" required> 00101111</label>
+        <label class="block"><input type="radio" name="q19" value="11110000"> 11110000</label>
+        <label class="block"><input type="radio" name="q19" value="00011101"> 00011101</label>
+        <label class="block"><input type="radio" name="q19" value="10011001"> 10011001</label>
+      </div>
+      
+      <!-- Q20 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q20. What is the base of hexadecimal number system?</p>
+        <label class="block"><input type="radio" name="q20" value="10" required> 10</label>
+        <label class="block"><input type="radio" name="q20" value="8"> 8</label>
+        <label class="block"><input type="radio" name="q20" value="16"> 16</label>
+        <label class="block"><input type="radio" name="q20" value="2"> 2</label>
+      </div>
+      
+      <!-- Q21 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q21. Decimal equivalent of binary number 1100 is:</p>
+        <label class="block"><input type="radio" name="q21" value="10" required> 10</label>
+        <label class="block"><input type="radio" name="q21" value="12"> 12</label>
+        <label class="block"><input type="radio" name="q21" value="14"> 14</label>
+        <label class="block"><input type="radio" name="q21" value="8"> 8</label>
+      </div>
+      
+      <!-- Q22 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q22. What is the decimal value of octal number 14?</p>
+        <label class="block"><input type="radio" name="q22" value="10" required> 10</label>
+        <label class="block"><input type="radio" name="q22" value="12"> 12</label>
+        <label class="block"><input type="radio" name="q22" value="16"> 16</label>
+        <label class="block"><input type="radio" name="q22" value="14"> 14</label>
+      </div>
+      
+      <!-- Q23 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q23. Which of the following is a valid octal number?</p>
+        <label class="block"><input type="radio" name="q23" value="0677" required> 0677</label>
+        <label class="block"><input type="radio" name="q23" value="089"> 089</label>
+        <label class="block"><input type="radio" name="q23" value="09"> 09</label>
+        <label class="block"><input type="radio" name="q23" value="199"> 199</label>
+      </div>
+      
+      <!-- Q24 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q24. Decimal value of binary number 100101 is:</p>
+        <label class="block"><input type="radio" name="q24" value="35" required> 35</label>
+        <label class="block"><input type="radio" name="q24" value="37"> 37</label>
+        <label class="block"><input type="radio" name="q24" value="41"> 41</label>
+        <label class="block"><input type="radio" name="q24" value="33"> 33</label>
+      </div>
+
+      <!-- Q25 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q25. What is the hexadecimal representation of decimal 31?</p>
+        <label class="block"><input type="radio" name="q25" value="1F" required> 1F</label>
+        <label class="block"><input type="radio" name="q25" value="21"> 21</label>
+        <label class="block"><input type="radio" name="q25" value="13"> 13</label>
+        <label class="block"><input type="radio" name="q25" value="11"> 11</label>
+      </div>
+      
+      <!-- Q26 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q26. What is the binary equivalent of hexadecimal B9?</p>
+        <label class="block"><input type="radio" name="q26" value="10111001" required> 10111001</label>
+        <label class="block"><input type="radio" name="q26" value="10101100"> 10101100</label>
+        <label class="block"><input type="radio" name="q26" value="10011001"> 10011001</label>
+        <label class="block"><input type="radio" name="q26" value="11011001"> 11011001</label>
+      </div>
+      
+      <!-- Q27 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q27. What is the decimal equivalent of binary number 1111?</p>
+        <label class="block"><input type="radio" name="q27" value="14" required> 14</label>
+        <label class="block"><input type="radio" name="q27" value="15"> 15</label>
+        <label class="block"><input type="radio" name="q27" value="13"> 13</label>
+        <label class="block"><input type="radio" name="q27" value="16"> 16</label>
+      </div>
+      
+      <!-- Q28 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q28. Which of the following binary numbers represent 4 bits?</p>
+        <label class="block"><input type="checkbox" name="q28" value="1111"> 1111</label>
+        <label class="block"><input type="checkbox" name="q28" value="1010"> 1010</label>
+        <label class="block"><input type="checkbox" name="q28" value="10011"> 10011</label>
+        <label class="block"><input type="checkbox" name="q28" value="1100"> 1100</label>
+      </div>
+      
+      <!-- Q29 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q29. What is the hexadecimal representation of decimal 255?</p>
+        <label class="block"><input type="radio" name="q29" value="FF" required> FF</label>
+        <label class="block"><input type="radio" name="q29" value="1F"> 1F</label>
+        <label class="block"><input type="radio" name="q29" value="F1"> F1</label>
+        <label class="block"><input type="radio" name="q29" value="EF"> EF</label>
+      </div>
+      
+      <!-- Q30 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q30. Which of the following numbers are NOT valid in base 3?</p>
+        <label class="block"><input type="checkbox" name="q30" value="102"> 102</label>
+        <label class="block"><input type="checkbox" name="q30" value="210"> 210</label>
+        <label class="block"><input type="checkbox" name="q30" value="301"> 301</label>
+        <label class="block"><input type="checkbox" name="q30" value="120"> 120</label>
+      </div>
+
+      <!-- Q31 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q31. What is the decimal equivalent of binary number 1010?</p>
+        <input type="text" name="q31" required placeholder="Enter your answer here" class="mt-2 block w-full px-4 py-2 border rounded">
+      </div>
+      
+      <!-- Q32 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q32. Write the hexadecimal digit corresponding to decimal 14.</p>
+        <input type="text" name="q32" required placeholder="Enter your answer here" class="mt-2 block w-full px-4 py-2 border rounded">
+      </div>
+      
+      <!-- Q33 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q33. How many bits are used to represent the decimal number 255 in binary?</p>
+        <input type="text" name="q33" required placeholder="Enter your answer here" class="mt-2 block w-full px-4 py-2 border rounded">
+      </div>
+      
+      <!-- Q34 -->
+      <div class="border rounded-lg p-4 bg-gray-50">
+        <p class="font-semibold mb-3">Q34. If a binary number is 100101, what is its decimal value?</p>
+        <input type="text" name="q34" required placeholder="Enter your answer here" class="mt-2 block w-full px-4 py-2 border rounded">
+      </div>
+      
+<!-- Q35 -->
+<div class="border rounded-lg p-4 bg-gray-50">
+  <p class="font-semibold mb-3">Q35. What is the base of the hexadecimal number system?</p>
+  <input type="text" name="q35" required placeholder="Enter your answer here" class="mt-2 block w-full px-4 py-2 border rounded">
+</div>
+
+<div class="text-center">
+  <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700">
+    Submit Answers
+  </button>
+</div>
 </form>
+</div>
 
-<script>
-  const correctAnswers = {
-    q1: "4",
-    q2: "8",
-    q3: "D2",
-    q4: "11",
-    q5: "1010",
-    q6: "8",
-    q7: "8",
-    q8: "Converts smaller number of inputs into larger number of outputs",
-    q9: "1010",
-    q10: ["1F", "A9", "B7"],
-    q11: ["1010", "0011"],
-    q12: "110101",
-    q13: "1111",
-    q14: ["It is a combinational circuit", "2 input decoder gives 4 outputs"],
-    q15: "Enable pin",
-    q16: "2",
-    q17: "Enable pin via NOT gate",
-    q18: "11111111",
-    q19: "00101111",
-    q20: "8",
-    q21: "12",
-    q22: "0677",
-    q23: "37",
-    q24: "00011010",
-    q25: "201",
-    q26: ["47", "63"],
-    q27: "D1",
-    q28: "AB'",
-    q29: "8",
-    q30: "Boolean expressions",
-    q31: "26",
-    q32: "7",
-    q33: ["0", "1", "2"],
-    q34: ["1111", "0000", "0101"],
-    q35: "16"
-  };
+  <script>
+    const correctAnswers = {
+      q1: "4",
+      q2: "8",
+      q3: "D2",
+      q4: "11",
+      q5: "1010",
+      q6: "8",
+      q7: "8",
+      q8: "Converts smaller number of inputs into larger number of outputs",
+      q9: "1010",
+      q10: ["1F", "A9", "B7"],
+      q11: ["1010", "0011"],
+      q12: "110101",
+      q13: "1111",
+      q14: ["It is a combinational circuit", "2 input decoder gives 4 outputs"],
+      q15: "Enable pin",
+      q16: "2",
+      q17: "Enable pin via NOT gate",
+      q18: "11111111",
+      q19: "00101111",
+      q20: "16",
+      q21: "12",
+      q22: "12",
+      q23: "0677",
+      q24: "37",
+      q25: "1F",
+      q26: "10111001",
+      q27: "15",
+      q28: ["1111", "1010", "1100"],
+      q29: "FF",
+      q30: ["301"],
+      q31: "10",
+      q32: "E",
+      q33: "8",
+      q34: "37",
+      q35: "16"
+    };
 
-  document.getElementById("quiz-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    const output = {};
-    let score = 0;
+    document.getElementById("quiz-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const output = {};
+      let score = 0;
 
-    formData.forEach((value, key) => {
-      if (output[key]) {
-        if (!Array.isArray(output[key])) output[key] = [output[key]];
-        output[key].push(value);
-      } else {
-        output[key] = value;
-      }
-    });
-
-    Object.keys(correctAnswers).forEach(key => {
-      const correct = correctAnswers[key];
-      const user = output[key];
-      if (Array.isArray(correct)) {
-        const userArray = Array.isArray(user) ? user : [user];
-        const isCorrect = correct.length === userArray.length && correct.every(v => userArray.includes(v));
-        if (isCorrect) score++;
-      } else {
-        if (String(user).trim().toLowerCase() === String(correct).trim().toLowerCase()) {
-          score++;
+      formData.forEach((value, key) => {
+        if (output[key]) {
+          if (!Array.isArray(output[key])) output[key] = [output[key]];
+          output[key].push(value);
+        } else {
+          output[key] = value;
         }
-      }
-    });
+      });
 
-    output.score = score;
+      Object.keys(correctAnswers).forEach(key => {
+        const correct = correctAnswers[key];
+        const user = output[key];
 
-    fetch("https://script.google.com/macros/s/AKfycbz_uJ0bQVpEVcCrjAduOHyEGIquZYS0CmcYIOCGzhZckioyv7R-qp7uSdP4vNli1W4/exec", {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(output)
-    })
-    .then(() => {
-      window.location.href = `resultx.html?score=${score}`;
-    })
-    .catch((err) => {
-      console.error(err);
-      alert("❌ There was an error submitting your responses.");
+        if (Array.isArray(correct)) {
+          const userArray = Array.isArray(user) ? user : [user];
+          const isCorrect = correct.length === userArray.length && correct.every(v => userArray.includes(v));
+          if (isCorrect) score++;
+        } else {
+          if (String(user).trim().toLowerCase() === String(correct).trim().toLowerCase()) score++;
+        }
+      });
+
+      output.score = score;
+      fetch("https://script.google.com/macros/s/AKfycbz_uJ0bQVpEVcCrjAduOHyEGIquZYS0CmcYIOCGzhZckioyv7R-qp7uSdP4vNli1W4/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(output)
+      })
+      .then(() => {
+        window.location.href = `resultx.html?score=${score}&name=${output.student_name}&id=${output.student_id}`;
+      })
+      .catch(err => alert("Error submitting responses."));
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
+
